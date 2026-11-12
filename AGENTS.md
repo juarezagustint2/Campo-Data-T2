@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Province agro data lives statically in `src/data/provincias-agro.ts`, keyed by the IGN/INDEC province id that matches `public/data/provincias.geojson` — keeps map features and data joined by one key.
+- The map uses Google Maps JS Data layer loaded once via `src/lib/google-maps.ts`; map colors come from CSS tokens converted to rgb at runtime — keeps the design system as the single color source.
+- The USD→ARS rate comes from a server function (DolarAPI, oficial) with a fallback value — the page never fails if the rate service is down.
